@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_wheelmanager/page/profile.dart';
 import 'package:flutter_application_wheelmanager/page/qualify.dart';
+import 'package:flutter_application_wheelmanager/page/route.dart';
 import 'package:flutter_application_wheelmanager/page/search_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,6 +17,10 @@ class _HomePageState extends State<HomePage> {
         return SearchPage();
       case 1:
         return QualifyPage();
+      case 2:
+        return RoutePage();
+      case 3:
+        return ProfilePage();
     }
   }
 
@@ -62,6 +68,22 @@ class _HomePageState extends State<HomePage> {
                 _selectDrawer(1);
               },
             ),
+            ListTile(
+              leading: Icon(Icons.map),
+              title: Text('Route'),
+              onTap: () {
+                Navigator.of(context).pop();
+                _selectDrawer(2);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text('Profile'),
+              onTap: () {
+                Navigator.of(context).pop();
+                _selectDrawer(3);
+              },
+            )
           ],
         ),
       ),
