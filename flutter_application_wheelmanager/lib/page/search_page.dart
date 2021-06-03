@@ -7,27 +7,37 @@ import 'package:flutter_application_wheelmanager/screen/search_service.dart';
 class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: ListView(
-      padding: EdgeInsets.all(20.0),
-      children: <Widget>[
-        _cardProduct(context),
-        SizedBox(
-          height: 30.0,
-        ),
-        _cardService(context),
-        SizedBox(
-          height: 30.0,
-        ),
-        _cardBussines(context),
-        SizedBox(
-          height: 30.0,
-        )
-      ],
-    ));
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Container(
+        // decoration: BoxDecoration(
+        //   image: DecorationImage(image: AssetImage('assets/bike.jpeg'))),
+        child: Scaffold(
+            backgroundColor: Colors.transparent,
+            body: ListView(
+              padding: EdgeInsets.all(20.0),
+              children: <Widget>[
+                SizedBox(
+                  height: 45.0,
+                ),
+                _cardProduct(context),
+                SizedBox(
+                  height: 45.0,
+                ),
+                _cardService(context),
+                SizedBox(
+                  height: 45.0,
+                ),
+                _cardBussines(context),
+              ],
+            )),
+      ),
+    );
   }
 
   Widget _cardProduct(context) => Card(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         child: Stack(
           alignment: Alignment.center,
           children: [
@@ -44,14 +54,16 @@ class SearchPage extends StatelessWidget {
               'Buscar Productos',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  fontSize: 24),
+                  color: Colors.orange,
+                  fontSize: 30),
             )
           ],
         ),
       );
 
   Widget _cardService(context) => Card(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         child: Stack(
           alignment: Alignment.center,
           children: [
@@ -69,14 +81,16 @@ class SearchPage extends StatelessWidget {
               'Buscar Servicios',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  fontSize: 24),
+                  color: Colors.orange,
+                  fontSize: 30),
             )
           ],
         ),
       );
 
   Widget _cardBussines(context) => Card(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         child: Stack(
           alignment: Alignment.center,
           children: [
@@ -94,8 +108,8 @@ class SearchPage extends StatelessWidget {
               'Buscar Empresas',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  fontSize: 24),
+                  color: Colors.orange,
+                  fontSize: 30),
             )
           ],
         ),
