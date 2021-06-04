@@ -6,6 +6,8 @@ import 'package:flutter_application_wheelmanager/model/profile_widget.dart';
 import 'package:flutter_application_wheelmanager/model/user.dart';
 import 'package:flutter_application_wheelmanager/model/user_preferences.dart';
 
+import 'edit_profile_page.dart';
+
 class ProfilePage extends StatefulWidget {
 
   @override
@@ -19,12 +21,18 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return Scaffold(
       appBar: buildAppBar(context),
+   
       body: ListView(
         physics: BouncingScrollPhysics(),
         children: [
+          SizedBox(height:30),
           ProfileWidget(
             imagePath: user.imagePath,
-            onClicked: () async {},
+            onClicked: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context)=> EditProfilePage()),
+              );
+            },
           ),
           const SizedBox(height:25),
           buildName(user),
@@ -48,7 +56,7 @@ class _ProfilePageState extends State<ProfilePage> {
       const SizedBox(height:4),
       Text(
         user.email,
-        style: TextStyle(color: Colors.grey[600]),
+        style: TextStyle(color: Colors.black),
       )
     ],
   );
