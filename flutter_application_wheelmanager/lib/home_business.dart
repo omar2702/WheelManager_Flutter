@@ -1,27 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_wheelmanager/page/profile.dart';
-import 'package:flutter_application_wheelmanager/page/qualify.dart';
-import 'package:flutter_application_wheelmanager/page/route.dart';
-import 'package:flutter_application_wheelmanager/page/search_page.dart';
+import 'package:flutter_application_wheelmanager/page/product.dart';
 
-class HomePage extends StatefulWidget {
-  static final nombrePagina = "Home Principal";
+class HomeBusinessPage extends StatefulWidget {
+  static final nombrePagina = "HomeBusiness";
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomeBusinessPageState createState() => _HomeBusinessPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeBusinessPageState extends State<HomeBusinessPage> {
   int page = 0;
   _getWidget(int pos) {
     switch (pos) {
-      case 0:
-        return SearchPage();
-      case 1:
-        return QualifyPage();
       case 2:
-        return RoutePage();
-      case 3:
-        return ProfilePage();
+        return ProductPage();
     }
   }
 
@@ -42,12 +33,12 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             UserAccountsDrawerHeader(
-                accountName: Text('User'),
-                accountEmail: Text('User@exmaple.com'),
+                accountName: Text('Empresario'),
+                accountEmail: Text('Empresario@exmaple.com'),
                 currentAccountPicture: CircleAvatar(
                     backgroundColor: Colors.blue,
                     child: Text(
-                      'U',
+                      'E',
                       style: TextStyle(fontSize: 40.0),
                     )),
                 decoration: BoxDecoration(
@@ -55,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                 )),
             ListTile(
               leading: Icon(Icons.search),
-              title: Text('Search'),
+              title: Text('Mi Publicidad'),
               onTap: () {
                 Navigator.of(context).pop();
                 _selectDrawer(0);
@@ -63,7 +54,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(Icons.check_circle),
-              title: Text('Qualify'),
+              title: Text('Mis Promociones'),
               onTap: () {
                 Navigator.of(context).pop();
                 _selectDrawer(1);
@@ -71,7 +62,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(Icons.map),
-              title: Text('Route'),
+              title: Text('Mis Productos'),
               onTap: () {
                 Navigator.of(context).pop();
                 _selectDrawer(2);
@@ -79,7 +70,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(Icons.account_circle),
-              title: Text('Profile'),
+              title: Text('Mis Servicios'),
               onTap: () {
                 Navigator.of(context).pop();
                 _selectDrawer(3);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_wheelmanager/home_business.dart';
 import 'package:flutter_application_wheelmanager/screen/search_bussines.dart';
 import 'package:flutter_application_wheelmanager/screen/search_product.dart';
 import 'package:flutter_application_wheelmanager/screen/search_service.dart';
@@ -42,6 +43,17 @@ class SearchPage extends StatelessWidget {
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => SearchService()));
+            },
+          ),
+          // ignore: deprecated_member_use
+          RaisedButton(
+            shape: StadiumBorder(),
+            child: Text('Empresario'),
+            color: Colors.orangeAccent[200],
+            textColor: Colors.white,
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HomeBusinessPage()));
             },
           )
         ],
