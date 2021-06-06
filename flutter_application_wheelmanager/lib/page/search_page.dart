@@ -10,8 +10,9 @@ class SearchPage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Container(
-        // decoration: BoxDecoration(
-        //   image: DecorationImage(image: AssetImage('assets/bike.jpeg'))),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/fondo.jpg'), fit: BoxFit.cover)),
         child: Scaffold(
             backgroundColor: Colors.transparent,
             body: ListView(
