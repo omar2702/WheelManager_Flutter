@@ -18,7 +18,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: Text('Edit profile'),
-        backgroundColor: Colors.transparent,
       ),
       body: Container(
         decoration: BoxDecoration(
