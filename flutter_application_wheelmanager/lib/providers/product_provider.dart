@@ -15,7 +15,21 @@ class ProductProvider {
     return _products;
   }
 
-  void agregarProducto(Map<String, dynamic> nuevoProducto) {
+  void addProduct(Map<String, dynamic> nuevoProducto) {
     _products.add(nuevoProducto);
+  }
+
+  void editProduct(
+      Map<String, dynamic> nuevoProducto, Map<String, dynamic> actualProducto) {
+    for (var i = 0; i < _products.length; i++) {
+      if (_products[i] == actualProducto) {
+        _products[i] = nuevoProducto;
+        break;
+      }
+    }
+  }
+
+  void deleteProduct(Map<String, dynamic> eliminarProducto) {
+    _products.remove(eliminarProducto);
   }
 }

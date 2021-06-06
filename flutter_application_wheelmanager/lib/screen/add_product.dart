@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/providers/product_provider.dart';
+import 'package:flutter_application_wheelmanager/screen/detail_product.dart';
 import 'package:flutter_application_wheelmanager/screen/form.dart';
 
 class AddProduct extends StatefulWidget {
-  AddProduct({Key key}) : super(key: key);
+  const AddProduct({Key key}) : super(key: key);
 
   static final nombrePagina = "Agregar";
   static final List<Map<String, dynamic>> listas = [];
@@ -36,6 +37,10 @@ class _AddProductState extends State<AddProduct> {
 
     for (Map<String, dynamic> lista in ProductProvider().products) {
       Widget item = ListTile(
+        onTap: () {
+          return Navigator.pushNamed(context, DetailProduct.nombrePagina,
+              arguments: lista);
+        },
         title: Text("${lista['nombre']}"),
       );
       temporal.add(item);

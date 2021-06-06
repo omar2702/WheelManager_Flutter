@@ -12,11 +12,13 @@ class FormProduct extends StatefulWidget {
 }
 
 class _FormProductState extends State<FormProduct> {
+  Map<String, dynamic> product;
   final idForm = GlobalKey<FormState>();
   Map<String, dynamic> newProduct = {};
 
   @override
   Widget build(BuildContext context) {
+    product = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text("Wheel Manager"),
@@ -30,6 +32,7 @@ class _FormProductState extends State<FormProduct> {
               children: <Widget>[
                 _crearInputNombre(),
                 _crearInputDescripcion(),
+                _crearInputPrecio(),
                 _crearButtonAgregar(context)
               ],
             ),
@@ -41,6 +44,7 @@ class _FormProductState extends State<FormProduct> {
 
   _crearInputNombre() {
     return TextFormField(
+      initialValue: (product != null) ? product['nombre'] : "",
       onSaved: (valor) {
         setState(() {
           newProduct['nombre'] = valor;
@@ -54,6 +58,7 @@ class _FormProductState extends State<FormProduct> {
     return Container(
       margin: EdgeInsets.only(top: 20.0),
       child: TextFormField(
+        initialValue: (product != null) ? product['descripcion'] : "",
         onSaved: (valor) {
           setState(() {
             newProduct['descripcion'] = valor;
@@ -61,6 +66,22 @@ class _FormProductState extends State<FormProduct> {
         },
         maxLines: null,
         decoration: InputDecoration(hintText: "Descripción del Producto"),
+      ),
+    );
+  }
+
+  _crearInputPrecio() {
+    return Container(
+      margin: EdgeInsets.only(top: 20.0),
+      child: TextFormField(
+        initialValue: (product != null) ? product['precio'] : "",
+        onSaved: (valor) {
+          setState(() {
+            newProduct['precio'] = valor;
+          });
+        },
+        maxLines: null,
+        decoration: InputDecoration(hintText: "Precio del Producto"),
       ),
     );
   }
@@ -73,12 +94,20 @@ class _FormProductState extends State<FormProduct> {
         onPressed: () {
           idForm.currentState.save();
           newProduct['estado'] = false;
-          ProductProvider().agregarProducto(newProduct);
+          if (product != null) {
+            ProductProvider().editProduct(newProduct, product);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => HomeBusinessPage()));
+          } else {
+            ProductProvider().addProduct(newProduct);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => HomeBusinessPage()));
+          }
           //Navigator.popAndPushNamed(context, AddProduct.nombrePagina);
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => HomeBusinessPage()));
         },
-        child: Text("Agregar Producto"),
+        child: (product != null)
+            ? Text("Editar Producto")
+            : Text("Agregar Producto"),
       ),
     );
   }

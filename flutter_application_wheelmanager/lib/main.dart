@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/home.dart';
+import 'package:flutter_application_wheelmanager/screen/detail_product.dart';
+import 'package:flutter_application_wheelmanager/screen/form.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,6 +19,10 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.orangeAccent[200],
       ),
       home: HomePage(),
+      routes: {
+        DetailProduct.nombrePagina: (BuildContext context) => DetailProduct(),
+        FormProduct.nombrePagina: (BuildContext context) => FormProduct()
+      },
     );
   }
 }
