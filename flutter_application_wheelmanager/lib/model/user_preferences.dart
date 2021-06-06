@@ -7,9 +7,9 @@ class UserPreferences {
   static SharedPreferences _preferences;
   static const _keyUser = "user";
   static const myUser = User(
-    imagePath:'https://i.imgur.com/2VcNXz2.jpg',
-    name: 'Dylan Wang',
-    email: 'dylan.wang@gmail.com',
+    imagePath:'https://i.imgur.com/wPf3Sn6.jpeg',
+    name: 'Cesar Wu',
+    email: 'cesar.wu@gmail.com',
     about: 'Me considero un ciclista casual. Suelo ir a todos lados en bicicleta porque ahorro dinero y salvo el medio ambiente.',
   );
 
