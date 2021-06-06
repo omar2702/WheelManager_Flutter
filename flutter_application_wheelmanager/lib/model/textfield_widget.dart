@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatefulWidget {
@@ -58,6 +56,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           ),
         ),
         maxLines: widget.maxLines,
+        onChanged: widget.onChanged,
       ),
     ],
   );

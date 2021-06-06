@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/home.dart';
+import 'package:flutter_application_wheelmanager/model/user_preferences.dart';
 
-void main() {
+
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await UserPreferences.init();
   runApp(MyApp());
 }
 

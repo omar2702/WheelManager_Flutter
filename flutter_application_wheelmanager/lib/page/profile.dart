@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/model/datas_widget.dart';
-import 'package:flutter_application_wheelmanager/model/appbar_widget.dart';
 import 'package:flutter_application_wheelmanager/model/button_widget.dart';
 import 'package:flutter_application_wheelmanager/model/profile_widget.dart';
 import 'package:flutter_application_wheelmanager/model/user.dart';
 import 'package:flutter_application_wheelmanager/model/user_preferences.dart';
+import 'package:flutter_application_wheelmanager/page/edit_profile_page.dart';
 
-import 'edit_profile_page.dart';
 
 class ProfilePage extends StatefulWidget {
 
@@ -17,32 +16,45 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    final user = UserPreferences.myUser;
+    final user = UserPreferences.getUser();
 
-    return Scaffold(
-      appBar: buildAppBar(context),
-   
-      body: ListView(
-        physics: BouncingScrollPhysics(),
-        children: [
-          SizedBox(height:30),
-          ProfileWidget(
-            imagePath: user.imagePath,
-            onClicked: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (context)=> EditProfilePage()),
-              );
-            },
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/header_home.jpg'),
+                fit: BoxFit.cover)),
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+              title: Text('Profile'), backgroundColor: Colors.transparent),
+          body: ListView(
+            physics: BouncingScrollPhysics(),
+            children: [
+              SizedBox(height: 30),
+              ProfileWidget(
+                imagePath: user.imagePath,
+                onClicked: () async{
+                  await Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => EditProfilePage()),
+                  );
+                  setState(() {
+                    
+                  });
+                },
+              ),
+              const SizedBox(height: 25),
+              buildName(user),
+              const SizedBox(height: 25),
+              Center(child: buildUpgradeButton()),
+              const SizedBox(height: 25),
+              DatasWidget(),
+              const SizedBox(height: 25),
+              buildAbout(user),
+            ],
           ),
-          const SizedBox(height:25),
-          buildName(user),
-          const SizedBox(height:25),
-          Center(child:buildUpgradeButton()),
-          const SizedBox(height:25),
-          DatasWidget(),
-          const SizedBox(height:25),
-          buildAbout(user),
-        ],
+        ),
       ),
     );
   }
