@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/home.dart';
 import 'package:flutter_application_wheelmanager/model/user_preferences.dart';
-
+import 'package:flutter_application_wheelmanager/screen/detail_product.dart';
+import 'package:flutter_application_wheelmanager/screen/form.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +22,10 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.orangeAccent[200],
       ),
       home: HomePage(),
+      routes: {
+        DetailProduct.nombrePagina: (BuildContext context) => DetailProduct(),
+        FormProduct.nombrePagina: (BuildContext context) => FormProduct()
+      },
     );
   }
 }
