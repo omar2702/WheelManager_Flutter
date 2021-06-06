@@ -6,7 +6,15 @@ class RoutePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Route'),
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/fondo.jpg'), fit: BoxFit.cover)),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: ListView(
+          children: [],
+        ),
+      ),
     );
   }
 }

@@ -23,7 +23,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       body: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/luna.jpg'), fit: BoxFit.cover)),
+                image: AssetImage('assets/fondo.jpg'), fit: BoxFit.cover)),
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 32),
           physics: BouncingScrollPhysics(),
@@ -38,24 +38,24 @@ class _EditProfilePageState extends State<EditProfilePage> {
             TextFieldWidget(
               label: 'Full Name',
               text: user.name,
-              onChanged: (name) =>user = user.copy(name:name),
+              onChanged: (name) => user = user.copy(name: name),
             ),
             const SizedBox(height: 25),
             TextFieldWidget(
               label: 'Email',
               text: user.email,
-              onChanged: (email) =>user = user.copy(email:email),
+              onChanged: (email) => user = user.copy(email: email),
             ),
             const SizedBox(height: 25),
             TextFieldWidget(
               label: 'About',
               text: user.about,
               maxLines: 5,
-              onChanged: (about) =>user = user.copy(about:about),
+              onChanged: (about) => user = user.copy(about: about),
             ),
-            const SizedBox(height:25),
+            const SizedBox(height: 25),
             ButtonWidget(
-              text:'Save Changes',
+              text: 'Save Changes',
               onClicked: () {
                 UserPreferences.setUser(user);
                 Navigator.of(context).pop();

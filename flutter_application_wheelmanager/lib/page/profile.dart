@@ -6,13 +6,11 @@ import 'package:flutter_application_wheelmanager/model/user.dart';
 import 'package:flutter_application_wheelmanager/model/user_preferences.dart';
 import 'package:flutter_application_wheelmanager/page/edit_profile_page.dart';
 
-
 class ProfilePage extends StatefulWidget {
-
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
-  
+
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
@@ -23,8 +21,7 @@ class _ProfilePageState extends State<ProfilePage> {
       home: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/header_home.jpg'),
-                fit: BoxFit.cover)),
+                image: AssetImage('assets/fondo.jpg'), fit: BoxFit.cover)),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
@@ -35,13 +32,11 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(height: 30),
               ProfileWidget(
                 imagePath: user.imagePath,
-                onClicked: () async{
+                onClicked: () async {
                   await Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => EditProfilePage()),
                   );
-                  setState(() {
-                    
-                  });
+                  setState(() {});
                 },
               ),
               const SizedBox(height: 25),
@@ -60,39 +55,40 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget buildName(User user) => Column(
-    children: [
-      Text(
-        user.name,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize:24)
-      ),
-      const SizedBox(height:4),
-      Text(
-        user.email,
-        style: TextStyle(color: Colors.black),
-      )
-    ],
-  );
+        children: [
+          Text(user.name,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                  color: Colors.white)),
+          const SizedBox(height: 4),
+          Text(
+            user.email,
+            style: TextStyle(color: Colors.white),
+          )
+        ],
+      );
 
   Widget buildUpgradeButton() => ButtonWidget(
-    text:'Subscribe',
-    onClicked: () {},
-  );
+        text: 'Subscribe',
+        onClicked: () {},
+      );
 
-    Widget buildAbout(User user) => Container(
-    padding: EdgeInsets.symmetric(horizontal:50),
-    child:Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'About',
-          style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height:15),
-        Text(
-          user.about,
-          style:TextStyle(fontSize: 15, height: 1.5),
-        )
-      ],
-    )
-  );
+  Widget buildAbout(User user) => Container(
+      padding: EdgeInsets.symmetric(horizontal: 50),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'About',
+            style: TextStyle(
+                fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          const SizedBox(height: 15),
+          Text(
+            user.about,
+            style: TextStyle(fontSize: 15, height: 1.5, color: Colors.white),
+          )
+        ],
+      ));
 }

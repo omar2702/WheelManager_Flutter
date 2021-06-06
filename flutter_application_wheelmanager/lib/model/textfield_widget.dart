@@ -11,53 +11,52 @@ class TextFieldWidget extends StatefulWidget {
     this.label,
     this.text,
     this.onChanged,
-    this.maxLines=1,
-  }) :super(key: key);
+    this.maxLines = 1,
+  }) : super(key: key);
 
   @override
   _TextFieldWidgetState createState() => _TextFieldWidgetState();
 }
 
-
 class _TextFieldWidgetState extends State<TextFieldWidget> {
   TextEditingController controller;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
 
-    controller=TextEditingController( text: widget.text);
+    controller = TextEditingController(text: widget.text);
   }
 
   @override
-  void dispose(){
+  void dispose() {
     controller.dispose();
     super.dispose();
-    }
-
+  }
 
   @override
   Widget build(BuildContext context) => Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Text(
-        widget.label,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize:16 )
-      ),
-      const SizedBox(height:10),
-      TextField(
-        controller: controller,
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: Colors.white,
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white),
-            borderRadius: BorderRadius.circular(12),
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(widget.label,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: Colors.white)),
+          const SizedBox(height: 10),
+          TextField(
+            controller: controller,
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.white),
+                borderRadius: BorderRadius.circular(12),
+              ),
+            ),
+            maxLines: widget.maxLines,
+            onChanged: widget.onChanged,
           ),
-        ),
-        maxLines: widget.maxLines,
-        onChanged: widget.onChanged,
-      ),
-    ],
-  );
+        ],
+      );
 }
