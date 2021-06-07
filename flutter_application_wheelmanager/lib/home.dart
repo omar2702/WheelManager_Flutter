@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/home_business.dart';
+import 'package:flutter_application_wheelmanager/model/button_widget.dart';
 import 'package:flutter_application_wheelmanager/page/profile.dart';
 import 'package:flutter_application_wheelmanager/page/qualify.dart';
 import 'package:flutter_application_wheelmanager/page/route.dart';
@@ -37,19 +38,12 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(title: Text('WheelManager'), actions: <Widget>[
         Padding(
             padding: EdgeInsets.only(right: 20.0),
-            child: GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => HomeBusinessPage()));
-                },
-                child: BottomAppBar(
-                  child: Text(
-                    'Empresario',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                  ),
-                )))
+            child: ButtonWidget(
+                text: 'Empresario',
+                onClicked: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomeBusinessPage()));
+                },))
       ]),
       drawer: Drawer(
         child: ListView(
