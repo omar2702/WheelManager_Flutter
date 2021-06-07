@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/home.dart';
+import 'package:flutter_application_wheelmanager/model/button_widget.dart';
 import 'package:flutter_application_wheelmanager/page/product.dart';
 
 class HomeBusinessPage extends StatefulWidget {
@@ -29,17 +30,13 @@ class _HomeBusinessPageState extends State<HomeBusinessPage> {
       appBar: AppBar(title: Text('WheelManager'), actions: <Widget>[
         Padding(
             padding: EdgeInsets.only(right: 20.0),
-            child: GestureDetector(
-                onTap: () {
+            child: ButtonWidget(
+              text: 'Usuario',
+                onClicked: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => HomePage()));
                 },
-                child: BottomAppBar(
-                  child: Text(
-                    'Usuario',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                  ),
-                )))
+          ))
       ]),
       drawer: Drawer(
         child: ListView(
