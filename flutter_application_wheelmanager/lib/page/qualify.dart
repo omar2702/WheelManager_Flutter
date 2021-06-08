@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_application_wheelmanager/colors/color_filter.dart';
+import 'package:flutter_application_wheelmanager/colors/color_filter.dart';
 import 'package:flutter_application_wheelmanager/qualify/qualify_business.dart';
 import 'package:flutter_application_wheelmanager/qualify/qualify_product.dart';
 import 'package:flutter_application_wheelmanager/qualify/qualify_service.dart';
@@ -11,9 +11,10 @@ class QualifyPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/fondo.jpg'), fit: BoxFit.cover),
-        ),
+            image: DecorationImage(
+                image: AssetImage('assets/fondo.jpg'), fit: BoxFit.cover),
+                ),
+                
         child: Scaffold(
             backgroundColor: Colors.transparent,
             body: ListView(
@@ -46,7 +47,9 @@ class QualifyPage extends StatelessWidget {
             Ink.image(
               image: AssetImage('assets/calificar_producto.jpg'),
               colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.5), BlendMode.darken),
+                Colors.black.withOpacity(0.5),
+                BlendMode.darken
+              ),
               child: InkWell(onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => QualifyProduct()));
@@ -74,7 +77,9 @@ class QualifyPage extends StatelessWidget {
             Ink.image(
               image: AssetImage('assets/calificar_servicio.jpg'),
               colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.4), BlendMode.darken),
+                Colors.black.withOpacity(0.4),
+                BlendMode.darken
+              ),
               child: InkWell(onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => QualifyService()));
@@ -102,7 +107,9 @@ class QualifyPage extends StatelessWidget {
             Ink.image(
               image: AssetImage('assets/calificar_empresa.jpg'),
               colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.5), BlendMode.darken),
+                Colors.black.withOpacity(0.5),
+                BlendMode.darken
+              ),
               child: InkWell(onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => QualifyBusiness()));

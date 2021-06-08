@@ -16,21 +16,18 @@ class AddProduct extends StatefulWidget {
 class _AddProductState extends State<AddProduct> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: (ProductProvider().products.isNotEmpty)
-            ? ListView(children: _crearItem())
-            : Center(
-                child: Text("No hay productos agregados"),
-              ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => FormProduct()));
-          },
-          child: Icon(Icons.add),
-        ),
+    return Scaffold(
+      body: (ProductProvider().products.isNotEmpty)
+          ? ListView(children: _crearItem())
+          : Center(
+              child: Text("No hay productos agregados"),
+            ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => FormProduct()));
+        },
+        child: Icon(Icons.add),
       ),
     );
   }

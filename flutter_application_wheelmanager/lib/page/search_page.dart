@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter_application_wheelmanager/colors/color_filter.dart';
+import 'package:flutter_application_wheelmanager/colors/color_filter.dart';
 import 'package:flutter_application_wheelmanager/search/search_product.dart';
 import 'package:flutter_application_wheelmanager/search/search_bussines.dart';
 import 'package:flutter_application_wheelmanager/search/search_service.dart';
@@ -45,7 +45,9 @@ class SearchPage extends StatelessWidget {
             Ink.image(
               image: AssetImage('assets/bicicle.png'),
               colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.4), BlendMode.darken),
+                Colors.black.withOpacity(0.4),
+                BlendMode.darken
+              ),
               child: InkWell(onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SearchProduct()));
@@ -74,7 +76,9 @@ class SearchPage extends StatelessWidget {
               image: AssetImage('assets/service.jpg'),
               //colorFilter: ColorFilters.greyscale,
               colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.4), BlendMode.darken),
+                Colors.black.withOpacity(0.4),
+                BlendMode.darken
+              ),
               child: InkWell(onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SearchService()));
@@ -103,7 +107,9 @@ class SearchPage extends StatelessWidget {
               image: AssetImage('assets/empresa.jpg'),
               //colorFilter: ColorFilters.greyscale,
               colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.4), BlendMode.darken),
+                Colors.black.withOpacity(0.4),
+                BlendMode.darken
+              ),
               child: InkWell(onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SearchBusiness()));
