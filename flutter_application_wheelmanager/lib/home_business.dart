@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/home.dart';
 import 'package:flutter_application_wheelmanager/model/button_widget.dart';
+import 'package:flutter_application_wheelmanager/page/my_business.dart';
+import 'package:flutter_application_wheelmanager/page/my_promotions.dart';
+import 'package:flutter_application_wheelmanager/page/my_services.dart';
 import 'package:flutter_application_wheelmanager/page/product.dart';
 
 class HomeBusinessPage extends StatefulWidget {
@@ -13,8 +16,14 @@ class _HomeBusinessPageState extends State<HomeBusinessPage> {
   int page = 0;
   _getWidget(int pos) {
     switch (pos) {
+      case 0:
+        return MyBusiness();
+      case 1:
+        return MyPromotions();
       case 2:
         return ProductPage();
+      case 3:
+        return MyServices();
     }
   }
 
@@ -32,11 +41,11 @@ class _HomeBusinessPageState extends State<HomeBusinessPage> {
             padding: EdgeInsets.only(right: 20.0),
             child: ButtonWidget(
               text: 'Usuario',
-                onClicked: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
-                },
-          ))
+              onClicked: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
+              },
+            ))
       ]),
       drawer: Drawer(
         child: ListView(
@@ -56,7 +65,7 @@ class _HomeBusinessPageState extends State<HomeBusinessPage> {
                 )),
             ListTile(
               leading: Icon(Icons.search),
-              title: Text('Mi Publicidad'),
+              title: Text('Mis Publicidades'),
               onTap: () {
                 Navigator.of(context).pop();
                 _selectDrawer(0);
