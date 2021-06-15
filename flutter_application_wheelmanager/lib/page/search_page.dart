@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/colors/color_filter.dart';
-import 'package:flutter_application_wheelmanager/screen/search_product.dart';
-import 'package:flutter_application_wheelmanager/screen/search_bussines.dart';
-import 'package:flutter_application_wheelmanager/screen/search_service.dart';
+import 'package:flutter_application_wheelmanager/search/search_product.dart';
+import 'package:flutter_application_wheelmanager/search/search_bussines.dart';
+import 'package:flutter_application_wheelmanager/search/search_service.dart';
 
 class SearchPage extends StatelessWidget {
   @override
@@ -70,7 +70,7 @@ class SearchPage extends StatelessWidget {
           children: [
             Ink.image(
               image: AssetImage('assets/service.jpg'),
-              colorFilter: ColorFilters.greyscale,
+              //colorFilter: ColorFilters.greyscale,
               child: InkWell(onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SearchService()));
@@ -97,7 +97,7 @@ class SearchPage extends StatelessWidget {
           children: [
             Ink.image(
               image: AssetImage('assets/empresa.jpg'),
-              colorFilter: ColorFilters.greyscale,
+              //colorFilter: ColorFilters.greyscale,
               child: InkWell(onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SearchBusiness()));
