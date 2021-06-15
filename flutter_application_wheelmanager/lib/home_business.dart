@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_wheelmanager/page/profile.dart';
-import 'package:flutter_application_wheelmanager/page/qualify.dart';
-import 'package:flutter_application_wheelmanager/page/route.dart';
-import 'package:flutter_application_wheelmanager/page/search_page.dart';
+import 'package:flutter_application_wheelmanager/home.dart';
+import 'package:flutter_application_wheelmanager/page/product.dart';
+import 'package:flutter_application_wheelmanager/page/promotion.dart';
+import 'package:flutter_application_wheelmanager/page/publicity.dart';
+import 'package:flutter_application_wheelmanager/page/service.dart';
 
-import 'home_business.dart';
 import 'model/button_widget.dart';
 
-class HomePage extends StatefulWidget {
+class HomeBusinessPage extends StatefulWidget {
+  static final nombrePagina = "HomeBusiness";
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomeBusinessPageState createState() => _HomeBusinessPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeBusinessPageState extends State<HomeBusinessPage> {
   int page = 0;
   _getWidget(int pos) {
     switch (pos) {
       case 0:
-        return SearchPage();
+        return PublicityPage();
       case 1:
-        return QualifyPage();
+        return PromotionPage();
       case 2:
-        return RoutePage();
+        return ProductPage();
       case 3:
-        return ProfilePage();
+        return MyServicePage();
     }
   }
 
@@ -40,12 +41,10 @@ class _HomePageState extends State<HomePage> {
         Padding(
             padding: EdgeInsets.only(right: 20.0),
             child: ButtonWidget(
-              text: 'Empresario',
+              text: 'Usuario',
               onClicked: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => HomeBusinessPage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
               },
             ))
       ]),
@@ -54,44 +53,44 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             UserAccountsDrawerHeader(
-                accountName: Text('User'),
-                accountEmail: Text('User@exmaple.com'),
+                accountName: Text('Empresario'),
+                accountEmail: Text('Empresario@exmaple.com'),
                 currentAccountPicture: CircleAvatar(
                     backgroundColor: Colors.blue,
                     child: Text(
-                      'U',
+                      'E',
                       style: TextStyle(fontSize: 40.0),
                     )),
                 decoration: BoxDecoration(
                   color: Colors.orange[50],
                 )),
             ListTile(
-              leading: Icon(Icons.search),
-              title: Text('Search'),
+              leading: Icon(Icons.picture_in_picture_rounded),
+              title: Text('Mi Publicidad'),
               onTap: () {
                 Navigator.of(context).pop();
                 _selectDrawer(0);
               },
             ),
             ListTile(
-              leading: Icon(Icons.check_circle),
-              title: Text('Qualify'),
+              leading: Icon(Icons.attach_money),
+              title: Text('Mis Promociones'),
               onTap: () {
                 Navigator.of(context).pop();
                 _selectDrawer(1);
               },
             ),
             ListTile(
-              leading: Icon(Icons.map),
-              title: Text('Route'),
+              leading: Icon(Icons.production_quantity_limits),
+              title: Text('Mis Productos'),
               onTap: () {
                 Navigator.of(context).pop();
                 _selectDrawer(2);
               },
             ),
             ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Profile'),
+              leading: Icon(Icons.home_repair_service_rounded),
+              title: Text('Mis Servicios'),
               onTap: () {
                 Navigator.of(context).pop();
                 _selectDrawer(3);
