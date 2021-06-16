@@ -44,6 +44,8 @@ class SearchPage extends StatelessWidget {
           children: [
             Ink.image(
               image: AssetImage('assets/bicicle.png'),
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.5), BlendMode.darken),
               child: InkWell(onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SearchProduct()));
@@ -70,7 +72,8 @@ class SearchPage extends StatelessWidget {
           children: [
             Ink.image(
               image: AssetImage('assets/service.jpg'),
-              //colorFilter: ColorFilters.greyscale,
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.5), BlendMode.darken),
               child: InkWell(onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SearchService()));
@@ -97,7 +100,8 @@ class SearchPage extends StatelessWidget {
           children: [
             Ink.image(
               image: AssetImage('assets/empresa.jpg'),
-              //colorFilter: ColorFilters.greyscale,
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.5), BlendMode.darken),
               child: InkWell(onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => SearchBusiness()));
