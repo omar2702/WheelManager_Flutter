@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
-
 class ButtonGreen extends StatefulWidget {
   final String text;
   double width = 0.0;

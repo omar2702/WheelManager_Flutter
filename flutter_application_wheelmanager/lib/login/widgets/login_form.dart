@@ -49,7 +49,7 @@ class _LoginFormState extends State<LoginForm> {
                 children: <Widget>[
                   Expanded(
                     child: InputText(
-                      label: "PASSWORD",
+                      label: "Password",
                       onChanged: (text) {
                         _password = text;
                       },

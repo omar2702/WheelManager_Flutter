@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Wheel Manager',
           home: SignInScreen(),
         ),
