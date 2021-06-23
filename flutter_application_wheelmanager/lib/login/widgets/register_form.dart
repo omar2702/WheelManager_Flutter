@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/login/utils/responsive.dart';
 import 'package:flutter_application_wheelmanager/login/widgets/input_text.dart';
+import 'package:flutter_application_wheelmanager/login/widgets/login_form.dart';
 
-class LoginForm extends StatefulWidget {
+class RegisterForm extends StatefulWidget {
   @override
-  _LoginFormState createState() => _LoginFormState();
+  _RegisterFormState createState() => _RegisterFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _RegisterFormState extends State<RegisterForm> {
   GlobalKey<FormState> _formKey = GlobalKey();
-  String _email = '', _password = '';
+  String _email = '', _password = '', _username = '';
 
   _submit() {
     final isOk = _formKey.currentState.validate();
@@ -28,7 +29,24 @@ class _LoginFormState extends State<LoginForm> {
           child: Column(children: <Widget>[
             InputText(
               keyboardType: TextInputType.emailAddress,
-              label: "Email Address",
+              label: "USERNAME",
+              fontSize: responsive.dp(responsive.isTablet ? 1.2 : 1.4),
+              onChanged: (text) {
+                _username = text;
+              },
+              validator: (text) {
+                if (text.trim().length > 5) {
+                  return "invalid username";
+                }
+                return null;
+              },
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            InputText(
+              keyboardType: TextInputType.emailAddress,
+              label: "EMAIL ADDRESS",
               fontSize: responsive.dp(responsive.isTablet ? 1.2 : 1.4),
               onChanged: (text) {
                 _email = text;
@@ -43,28 +61,19 @@ class _LoginFormState extends State<LoginForm> {
             SizedBox(
               height: 15,
             ),
-            Container(
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: InputText(
-                      label: "PASSWORD",
-                      onChanged: (text) {
-                        _password = text;
-                      },
-                      validator: (text) {
-                        if (text.trim().length == 0) {
-                          return "Invalid Password";
-                        }
-                        return null;
-                      },
-                      obscureText: true,
-                      borderEnabled: false,
-                      fontSize: responsive.dp(responsive.isTablet ? 1.2 : 1.4),
-                    ),
-                  ),
-                ],
-              ),
+            InputText(
+              keyboardType: TextInputType.emailAddress,
+              label: "PASSWORD",
+              fontSize: responsive.dp(responsive.isTablet ? 1.2 : 1.4),
+              onChanged: (text) {
+                _password = text;
+              },
+              validator: (text) {
+                if (text.trim().length > 6) {
+                  return "invalid password";
+                }
+                return null;
+              },
             ),
             SizedBox(height: responsive.hp(2)),
             SizedBox(
@@ -72,7 +81,7 @@ class _LoginFormState extends State<LoginForm> {
               // ignore: deprecated_member_use
               child: FlatButton(
                 onPressed: this._submit,
-                child: Text('Sign in',
+                child: Text('Sign up',
                     style: TextStyle(
                         color: Colors.white, fontSize: responsive.dp(1.6))),
                 padding: EdgeInsets.symmetric(vertical: 15),
@@ -81,15 +90,17 @@ class _LoginFormState extends State<LoginForm> {
             ),
             SizedBox(height: responsive.hp(2)),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-              Text("New to Wheel Manager?",
+              Text("Already have a account?",
                   style: TextStyle(
                       color: Colors.white, fontSize: responsive.dp(1.6))),
               // ignore: deprecated_member_use
               FlatButton(
                   //Cmaibar cunado se desarrolle el consumo de api rest
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   child: Text(
-                    "Sign up",
+                    "Sign in",
                     style: TextStyle(color: Colors.orangeAccent[200]),
                   ))
             ]),

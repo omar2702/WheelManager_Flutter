@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_wheelmanager/login/login_page.dart';
 import 'package:flutter_application_wheelmanager/login/utils/responsive.dart';
-import 'package:flutter_application_wheelmanager/login/widgets/logo_container.dart';
+import 'package:flutter_application_wheelmanager/login/widgets/register_form.dart';
 
 class ResgiterPage extends StatefulWidget {
   @override
@@ -33,20 +35,55 @@ class _ResgiterPageState extends State<ResgiterPage> {
                 Positioned(
                     child: Column(
                       children: [
-                        LogoContainer(
-                          size: size.width * 0.17,
-                        ),
-                        SizedBox(height: responsive.dp(2.5)),
                         Text(
-                          "Welcome to Wheel Manager",
+                          "Hello!\nSign up to get started",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: responsive.dp(1.8)),
+                              fontSize: responsive.dp(1.6)),
                         ),
+                        SizedBox(
+                          height: responsive.dp(2.5),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: 20,
+                                  color: Colors.black26,
+                                  offset: Offset(0, 20),
+                                ),
+                              ]),
+                          child: ClipOval(
+                            child: Image.network(
+                              'http://cemokalab.com/wp-content/uploads/2015/07/avatar-372-456324.png',
+                              width: responsive.wp(25),
+                              height: responsive.hp(25),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                     top: 50),
+                RegisterForm(),
+                Positioned(
+                    left: 15,
+                    top: 15,
+                    child: SafeArea(
+                      child: CupertinoButton(
+                        color: Colors.black26,
+                        padding: EdgeInsets.all(10),
+                        borderRadius: BorderRadius.circular(30),
+                        child: Icon(Icons.arrow_back),
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Login()));
+                        },
+                      ),
+                    ))
               ],
             ),
           ),
