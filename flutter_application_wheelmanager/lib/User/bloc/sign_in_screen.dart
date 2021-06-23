@@ -1,9 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/User/bloc/bloc_user.dart';
 import 'package:flutter_application_wheelmanager/global_widgets/button_green.dart';
 import 'package:flutter_application_wheelmanager/global_widgets/gradient_back.dart';
 import 'package:flutter_application_wheelmanager/home.dart';
+import 'package:flutter_application_wheelmanager/login/login_page.dart';
+import 'package:flutter_application_wheelmanager/model/button_widget.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -58,6 +59,13 @@ class _SignInScreen extends State<SignInScreen> {
                 },
                 width: 300.0,
                 height: 50.0,
+              ),
+              ButtonWidget(
+                text: 'Other login',
+                onClicked: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Login()));
+                },
               )
             ],
           )
