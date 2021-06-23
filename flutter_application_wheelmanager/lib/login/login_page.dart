@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_wheelmanager/login/login_form.dart';
+import 'package:flutter_application_wheelmanager/login/widgets/login_form.dart';
 import 'package:flutter_application_wheelmanager/login/utils/responsive.dart';
 import 'package:flutter_application_wheelmanager/login/widgets/logo_container.dart';
 
@@ -40,6 +40,7 @@ class _LoginState extends State<Login> {
                         SizedBox(height: responsive.dp(2.5)),
                         Text(
                           "Welcome to Wheel Manager",
+                          textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
