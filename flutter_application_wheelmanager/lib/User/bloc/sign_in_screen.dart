@@ -38,6 +38,7 @@ class _SignInScreen extends State<SignInScreen> {
 
   Widget signInGoogleUI() {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: Stack(
         alignment: Alignment.center,
         children: [
