@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "307991741923",
+    "project_id": "wheel-manager",
+    "storage_bucket": "wheel-manager.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307991741923:android:12490739945f7e9d7e0cd6",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_wheelmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "307991741923-qg74o5g7glqc4n2g4hsspnbr683su3oh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_application_wheelmanager",
+            "certificate_hash": "a3ac95e1b3eb577a8d8fbcd0916920039e669b10"
+          }
+        },
+        {
+          "client_id": "307991741923-6e9oqc3sknqqsj5j3iptirbf5oekn5sf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb0bhuFng3bw5efQK717ZypBsvcbYp8uM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "307991741923-6e9oqc3sknqqsj5j3iptirbf5oekn5sf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
