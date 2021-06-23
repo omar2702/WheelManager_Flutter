@@ -37,17 +37,20 @@ class _HomeBusinessPageState extends State<HomeBusinessPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('WheelManager'), actions: <Widget>[
-        Padding(
-            padding: EdgeInsets.only(right: 20.0),
-            child: ButtonWidget(
-              text: 'Usuario',
-              onClicked: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
-              },
-            ))
-      ]),
+      appBar: AppBar(
+          title: Text('WheelManager'),
+          backgroundColor: Colors.yellow.shade800,
+          actions: <Widget>[
+            Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: ButtonWidget(
+                  text: 'Usuario',
+                  onClicked: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  },
+                ))
+          ]),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
