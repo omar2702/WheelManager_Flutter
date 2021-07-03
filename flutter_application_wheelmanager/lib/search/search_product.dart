@@ -22,6 +22,7 @@ class _SearchProductState extends State<SearchProduct> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
+          backgroundColor: Colors.yellow.shade800,
           title: Text('Buscar Prodcuto'),
         ),
         body: FutureBuilder<List<Product>>(
