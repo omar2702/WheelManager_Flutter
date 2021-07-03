@@ -102,8 +102,10 @@ class SearchPage extends StatelessWidget {
               colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(0.5), BlendMode.darken),
               child: InkWell(onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SearchBusiness()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SearchCorporation()));
               }),
               height: 240,
               fit: BoxFit.cover,
