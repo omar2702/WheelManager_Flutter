@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_wheelmanager/models/product.dart';
 import 'package:flutter_application_wheelmanager/models/service.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -20,13 +19,14 @@ class _ServicePageState extends State<ServicePage> {
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
+            backgroundColor: Colors.yellow.shade800,
             title: Text(widget.service.name),
           ),
           body: Center(
             child: Column(
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 200),
+                  padding: EdgeInsets.symmetric(vertical: 100),
                   child: FadeInImage.memoryNetwork(
                     width: 200,
                     fit: BoxFit.fitWidth,
@@ -42,6 +42,13 @@ class _ServicePageState extends State<ServicePage> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 28,
+                  ),
+                ),
+                Text(
+                  widget.service.description,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
                   ),
                 ),
                 const SizedBox(height: 64),

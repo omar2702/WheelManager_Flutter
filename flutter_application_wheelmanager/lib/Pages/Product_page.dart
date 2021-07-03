@@ -19,15 +19,16 @@ class _ProductPageState extends State<ProductPage> {
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
+            backgroundColor: Colors.yellow.shade800,
             title: Text(widget.product.name),
           ),
           body: Center(
             child: Column(
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.symmetric(vertical: 200),
+                  padding: EdgeInsets.symmetric(vertical: 100),
                   child: FadeInImage.memoryNetwork(
-                    width: 200,
+                    width: 150,
                     fit: BoxFit.fitWidth,
                     placeholder: kTransparentImage,
                     image: widget.product.picture,
@@ -41,6 +42,13 @@ class _ProductPageState extends State<ProductPage> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 28,
+                  ),
+                ),
+                Text(
+                  widget.product.description,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
                   ),
                 ),
                 const SizedBox(height: 64),

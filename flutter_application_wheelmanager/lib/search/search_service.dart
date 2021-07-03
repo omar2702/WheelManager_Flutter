@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/Pages/service_tile.dart';
 import 'package:flutter_application_wheelmanager/controller/servicecontroller.dart';
-import 'package:flutter_application_wheelmanager/search/search_delegate.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
@@ -18,14 +17,8 @@ class SearchService extends StatelessWidget {
       child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
+            backgroundColor: Colors.yellow.shade800,
             title: Text('Buscar Servicio'),
-            actions: <Widget>[
-              IconButton(
-                  onPressed: () {
-                    showSearch(context: context, delegate: DataSearch());
-                  },
-                  icon: Icon(Icons.search))
-            ],
           ),
           body: Column(
             children: [
