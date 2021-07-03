@@ -4,10 +4,12 @@ import 'package:flutter_application_wheelmanager/models/product.dart';
 
 class ProductApi {
   static Future<List<Product>> getProducts() async {
-    Uri url = 'https://wheel-manager-movs.herokuapp.com/api/products/1' as Uri;
+    var url =
+        Uri.parse('https://wheel-manager-movs.herokuapp.com/api/products');
     final response = await http.get(url);
-    final body = json.decode(response.body);
+    Map<String, dynamic> body = json.decode(response.body);
+    List<dynamic> product = body['content'];
 
-    return body.map<Product>(Product.fromJson).toList();
+    return product.map<Product>(Product.fromJson).toList();
   }
 }

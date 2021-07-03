@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_wheelmanager/page/edit_profile_page.dart';
 import 'package:flutter_application_wheelmanager/page/profile.dart';
 import 'package:flutter_application_wheelmanager/page/qualify.dart';
 import 'package:flutter_application_wheelmanager/page/route.dart';
@@ -6,6 +7,8 @@ import 'package:flutter_application_wheelmanager/page/search_page.dart';
 
 import 'home_business.dart';
 import 'model/button_widget.dart';
+import 'model/user.dart';
+import 'model/user_preferences.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,6 +16,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  User user = UserPreferences.myUser;
+  EditProfilePage editProfilePage;
   int page = 0;
   _getWidget(int pos) {
     switch (pos) {
@@ -57,16 +62,13 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             UserAccountsDrawerHeader(
-                accountName: Text('User'),
-                accountEmail: Text('User@exmaple.com'),
+                accountName: Text(user.name),
+                accountEmail: Text(user.email),
                 currentAccountPicture: CircleAvatar(
-                    backgroundColor: Colors.blue,
-                    child: Text(
-                      'U',
-                      style: TextStyle(fontSize: 40.0),
-                    )),
+                  backgroundImage: NetworkImage(user.imagePath),
+                ),
                 decoration: BoxDecoration(
-                  color: Colors.orange[50],
+                  color: Colors.orange.shade300,
                 )),
             ListTile(
               leading: Icon(Icons.search),

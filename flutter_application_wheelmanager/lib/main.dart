@@ -2,10 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/User/bloc/bloc_user.dart';
 import 'package:flutter_application_wheelmanager/User/bloc/sign_in_screen.dart';
-import 'package:flutter_application_wheelmanager/login/login_page.dart';
-//import 'package:flutter_application_wheelmanager/home.dart';
 import 'package:flutter_application_wheelmanager/model/user_preferences.dart';
-import 'package:flutter/services.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 
 void main() async {
