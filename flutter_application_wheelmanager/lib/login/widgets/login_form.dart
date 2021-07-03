@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_wheelmanager/home.dart';
 import 'package:flutter_application_wheelmanager/login/register_page.dart';
 import 'package:flutter_application_wheelmanager/login/utils/responsive.dart';
 import 'package:flutter_application_wheelmanager/login/widgets/input_text.dart';
@@ -72,7 +73,12 @@ class _LoginFormState extends State<LoginForm> {
               width: double.infinity,
               // ignore: deprecated_member_use
               child: FlatButton(
-                onPressed: this._submit,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage()),
+                  );
+                },
                 child: Text('Sign in',
                     style: TextStyle(
                         color: Colors.white, fontSize: responsive.dp(1.6))),

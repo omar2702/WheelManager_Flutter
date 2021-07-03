@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_wheelmanager/models/product.dart';
+import 'package:flutter_application_wheelmanager/models/service.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-class ProductPage extends StatefulWidget {
-  final Product product;
-  const ProductPage({
+class ServicePage extends StatefulWidget {
+  final Service service;
+  const ServicePage({
     Key key,
-    @required this.product,
+    @required this.service,
   }) : super(key: key);
 
   @override
-  _ProductPageState createState() => _ProductPageState();
+  _ServicePageState createState() => _ServicePageState();
 }
 
-class _ProductPageState extends State<ProductPage> {
+class _ServicePageState extends State<ServicePage> {
   @override
   Widget build(BuildContext context) => Container(
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
-            title: Text(widget.product.name),
+            title: Text(widget.service.name),
           ),
           body: Center(
             child: Column(
@@ -30,13 +31,13 @@ class _ProductPageState extends State<ProductPage> {
                     width: 200,
                     fit: BoxFit.fitWidth,
                     placeholder: kTransparentImage,
-                    image: widget.product.picture,
+                    image: widget.service.picture,
                     imageErrorBuilder: (context, url, error) =>
                         Icon(Icons.error),
                   ),
                 ),
                 Text(
-                  widget.product.name,
+                  widget.service.name,
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -49,7 +50,7 @@ class _ProductPageState extends State<ProductPage> {
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                   color: Colors.teal,
                   child: Text(
-                    'Buy Product',
+                    'Buy Service',
                     style: TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   onPressed: () {},

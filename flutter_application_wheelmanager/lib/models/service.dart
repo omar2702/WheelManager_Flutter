@@ -1,28 +1,28 @@
 import 'package:meta/meta.dart';
 
-class Product {
+class Service {
   final int id;
+  final int raiting;
   final String name;
   final String description;
-  final String picture;
   final double price;
-  final int raiting;
+  final String picture;
 
-  const Product({
+  const Service({
     @required this.id,
+    @required this.raiting,
+    @required this.price,
     @required this.name,
     @required this.description,
     @required this.picture,
-    @required this.price,
-    @required this.raiting,
   });
 
-  static Product fromJson(json) => Product(
+  static Service fromJson(json) => Service(
         id: json['id'],
+        raiting: json['raiting'],
+        price: json['price'],
         name: json['name'],
         description: json['description'],
         picture: json['picture'],
-        price: json['price'],
-        raiting: json['raiting'],
       );
 }
